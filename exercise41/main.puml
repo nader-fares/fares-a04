@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Solution41 {
+main(String[])
+List String names
+-readFromFile(List String names)
+-writeToFile(List String names)
+}
+@enduml

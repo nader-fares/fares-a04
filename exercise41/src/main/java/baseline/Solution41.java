@@ -8,17 +8,50 @@ Then print the sorted list to a file called `exercise41_output.txt` that looks l
  */
 package baseline;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Solution41 {
     public static void main(String[] args) {
-        //Declare arraylist to store names
-        ArrayList<String> names = new ArrayList<String>();
+        Solution41 app = new Solution41();
+        //Declare list to store names
+        List<String> names = new ArrayList<>();
 
-        //read names from input file
-            //use loop to iterate through each line
+        app.readFromFile(names);
 
         //sort names
-        //write names onto output file
+        Collections.sort(names);
+
+        app.writeToFile(names);
+    }
+
+    //read names from input file
+    public void readFromFile(List <String> names) {
+        String currentLine;
+        try {
+            try (BufferedReader reader = new BufferedReader(new FileReader("..\\data\\exercise41_input.txt"))) {
+                while ((currentLine = reader.readLine()) != null) {        //use loop to iterate through each line
+                    names.add(currentLine);
+                }
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //write names onto output file
+    public void writeToFile(List <String> names) {
+
+        try {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("..\\data\\exercise41_output.txt"))) {
+                for (String name : names)
+                    writer.write(name + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
