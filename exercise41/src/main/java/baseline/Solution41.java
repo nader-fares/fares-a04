@@ -45,8 +45,12 @@ public class Solution41 {
     //write names onto output file
     public void writeToFile(List <String> names) {
 
+        int length = names.size();
+
         try {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("..\\data\\exercise41_output.txt"))) {
+                writer.write("Total of " + length + " names\n");
+                writer.write("-----------------\n");
                 for (String name : names)
                     writer.write(name + "\n");
             }
