@@ -31,7 +31,7 @@ public class Solution41 {
     public void readFromFile(List <String> names) {
         String currentLine;
         try {
-            try (BufferedReader reader = new BufferedReader(new FileReader("..\\data\\exercise41_input.txt"))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader("..\\exercise41\\data\\exercise41_input.txt"))) {
                 while ((currentLine = reader.readLine()) != null) {        //use loop to iterate through each line
                     names.add(currentLine);
                 }
@@ -48,7 +48,7 @@ public class Solution41 {
         int length = names.size();
 
         try {
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("..\\data\\exercise41_output.txt"))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("..\\exercise41\\data\\exercise41_output.txt"))) {
                 writer.write("Total of " + length + " names\n");
                 writer.write("-----------------\n");
                 for (String name : names)
