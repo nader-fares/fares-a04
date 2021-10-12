@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="baseline.Solution42Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-12T20:35:38" hostname="DESKTOP-60QMB9L" time="0.014">
+  <properties/>
+  <testcase name="employeeParser()" classname="baseline.Solution42Test" time="0.014"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
