@@ -43,19 +43,24 @@ public class Solution41 {
     }
 
     //write names onto output file
-    public void writeToFile(List <String> names) {
-
+    public String writeToFile(List <String> names) {
         int length = names.size();
+
+        //build output
+        StringBuilder output = new StringBuilder();
+        output.append("Total of ").append(length).append(" names\n");
+        output.append("-----------------\n");
+        for (String name : names)
+            output.append(name).append("\n");
 
         try {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("..\\exercise41\\data\\exercise41_output.txt"))) {
-                writer.write("Total of " + length + " names\n");
-                writer.write("-----------------\n");
-                for (String name : names)
-                    writer.write(name + "\n");
+                writer.write(String.valueOf(output));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return String.valueOf(output);    //return string for testing purposes
     }
 }
