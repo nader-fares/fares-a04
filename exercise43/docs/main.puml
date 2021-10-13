@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+class Solution43 {
+StringBuilder output
+String siteName
+String siteDirectory
+String authorName
+String jsFolder
+String cssFolder
+}
+
+class Website {
+StringBuilder output
++createWebsiteDirectory(String siteName)
++createWebsiteHTML(String siteNameDir, String siteName, String authorName)
++createWebsiteJs(String siteNameDir)
++createWebsiteCss(String siteNameDir)
+}
+
+Solution43 o-- Website
+@enduml
