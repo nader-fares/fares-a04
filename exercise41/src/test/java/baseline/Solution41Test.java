@@ -12,7 +12,7 @@ class Solution41Test {
 
     @Test
     void readFromFile() {
-        Solution41 app = new Solution41();
+        Person person = new Person();
         List<String> names = new ArrayList<>();
 
         List<String> namesTest = new ArrayList<>();
@@ -25,19 +25,19 @@ class Solution41Test {
         namesTest.add("Xiong, Fong");
 
 
-        app.readFromFile(names);
+        person.readFromFile(names);
 
         assertEquals(namesTest, names);
     }
 
     @Test
     void writeToFile() {
-        Solution41 app = new Solution41();
+        Person person = new Person();
         List<String> names = new ArrayList<>();
 
-        app.readFromFile(names);
+        person.readFromFile(names);
         Collections.sort(names);
-        String outputActual = app.writeToFile(names);
+        String outputActual = person.writeToFile(names);
 
         List<String> namesTest = new ArrayList<>();
         namesTest.add("Johnson, Jim\n");

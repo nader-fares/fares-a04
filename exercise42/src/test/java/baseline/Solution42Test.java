@@ -11,9 +11,9 @@ class Solution42Test {
 
     @Test
     void readFromFile() {
-        Solution42 app = new Solution42();
+        Employee em = new Employee();
         List<String> employees = new ArrayList<>();
-        app.readFromFile(employees);
+        em.readFromFile(employees);
 
         List<String> employeeExpected = new ArrayList<>();
         employeeExpected.add("Ling,Mai,55900");
@@ -29,44 +29,43 @@ class Solution42Test {
 
     @Test
     void writeToFile() {
-        Solution42 app = new Solution42();
+        Employee em = new Employee();
 
         List<String> employees = new ArrayList<>();
         List<String> lastName = new ArrayList<>();
         List<String> firstName = new ArrayList<>();
         List<String> salary = new ArrayList<>();
 
-        app.readFromFile(employees);
+        em.readFromFile(employees);
 
-        app.employeeParser(employees, lastName, firstName, salary);
+        em.employeeParser(employees, lastName, firstName, salary);
 
-        String outputActual = app.writeToFile(lastName, firstName, salary);
+        String outputActual = em.writeToFile(lastName, firstName, salary);
 
-        StringBuilder outputExpected = new StringBuilder();
-        outputExpected.append(String.format("%-10s  %-10s  %-10s %n", "Last", "First", "Salary"));
-        outputExpected.append(String.format("------------------------------%n"));
-        outputExpected.append("""
-                Ling        Mai         55900    \s
-                Johnson     Jim         56500    \s
-                Jones       Aaron       46000    \s
-                Jones       Chris       34500    \s
-                Swift       Geoffrey    14200    \s
-                Xiong       Fong        65000    \s
-                Zarnecki    Sabrina     51500    \s
-                """);
+        String outputExpected = String.format("%-10s  %-10s  %-10s %n", "Last", "First", "Salary") +
+                String.format("------------------------------%n") +
+                """
+                        Ling        Mai         55900    \s
+                        Johnson     Jim         56500    \s
+                        Jones       Aaron       46000    \s
+                        Jones       Chris       34500    \s
+                        Swift       Geoffrey    14200    \s
+                        Xiong       Fong        65000    \s
+                        Zarnecki    Sabrina     51500    \s
+                        """;
         assertEquals(String.valueOf(outputExpected), outputActual);
     }
 
     @Test
     void employeeParser() {
-        Solution42 app = new Solution42();
+        Employee em = new Employee();
 
         List<String> employees = new ArrayList<>();
         List<String> lastName = new ArrayList<>();
         List<String> firstName = new ArrayList<>();
         List<String> salary = new ArrayList<>();
-        app.readFromFile(employees);
-        app.employeeParser(employees, lastName, firstName, salary);
+        em.readFromFile(employees);
+        em.employeeParser(employees, lastName, firstName, salary);
 
         List<String> lastNameExpected = new ArrayList<>();
         lastNameExpected.add("Ling");
