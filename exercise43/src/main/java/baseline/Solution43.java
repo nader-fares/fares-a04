@@ -14,33 +14,45 @@ Generate an index.html file that contains the name of the site inside the <title
  */
 package baseline;
 
+import java.util.Scanner;
+
 public class Solution43 {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Website w = new Website();
+
         //build output along the way
-        StringBuilder output;
+        StringBuilder output = w.output;
 
         //prompt for and store site name
-        String siteName;
+        System.out.print("Site name: ");
+        String siteName = input.nextLine();
 
         //create and return site directory
-        String siteDirectory = createWebsiteDirectory();
+        String siteDirectory = w.createWebsiteDirectory(siteName);
 
         //prompt for and store author name
-        String authorName;
+        System.out.print("Author: ");
+        String authorName = input.nextLine();
 
         //create html website
-        createWebsiteHTML();
+        w.createWebsiteHTML(siteDirectory, siteName, authorName);
 
-        //ask if they want js
-        String jsFolder;
-        //if yes, create js folder
-        createWebsiteJs();
+        //ask if they want js, create js folder if yes
+        System.out.print("Do you want a folder for JavaScript? ");
+        String jsFolder = input.nextLine();
+        if (jsFolder.equalsIgnoreCase("y") || jsFolder.equalsIgnoreCase("yes")) {
+            w.createWebsiteJs(siteDirectory);
+        }
 
-        //ask if they want css
-        String cssFolder;
-        //if yes, create js folder
-        createWebsiteCss();
+        //ask if they want css, create css folder if yes
+        System.out.print("Do you want a folder for CSS? ");
+        String cssFolder = input.nextLine();
+        if (cssFolder.equalsIgnoreCase("y") || cssFolder.equalsIgnoreCase("yes")) {
+            w.createWebsiteCss(siteDirectory);
+        }
 
         //display output
+        System.out.println(output);
     }
 }
