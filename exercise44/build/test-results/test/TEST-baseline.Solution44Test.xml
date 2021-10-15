@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="baseline.Solution44Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-15T04:15:22" hostname="DESKTOP-60QMB9L" time="0.05">
+<testsuite name="baseline.Solution44Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-15T18:46:19" hostname="DESKTOP-60QMB9L" time="0.043">
   <properties/>
-  <testcase name="productDeserialization()" classname="baseline.Solution44Test" time="0.05"/>
+  <testcase name="productDeserialization()" classname="baseline.Solution44Test" time="0.043"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -46,7 +46,7 @@ public class Solution44 {
 
         //read json file
         try {
-            try (Reader reader = Files.newBufferedReader(Paths.get("./data/sample.json"))) {
+            try (Reader reader = Files.newBufferedReader(Paths.get("./data/exercise44_input.json"))) {
                 shop = new Gson().fromJson(reader, ItemShop.class);
             }
         } catch (Exception ex) {

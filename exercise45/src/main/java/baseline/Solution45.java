@@ -22,7 +22,7 @@ public class Solution45 {
     //read from input file
     public String readAndReplace() {
         //read file
-        File file = new File("./data/input.txt");
+        File file = new File("./data/exercise45_input.txt");
         StringBuilder output = new StringBuilder();
         try {
             try (Scanner input = new Scanner(file)) {
