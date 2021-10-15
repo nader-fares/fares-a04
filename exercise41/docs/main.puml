@@ -4,13 +4,9 @@ class Solution41 {
 main(String[])
 List<String> personList
 'Collections.sort(personList)
-}
-
-class Person {
-List<String> names
 +readFromFile(List<String> names)
 +writeToFile(List<String> names): output
 }
 
-Solution41 o-- Person
+
 @enduml

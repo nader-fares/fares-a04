@@ -3,7 +3,6 @@ package baseline;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +11,7 @@ class Solution41Test {
 
     @Test
     void readFromFile() {
-        Person person = new Person();
+        Solution41 app = new Solution41();
         List<String> names = new ArrayList<>();
 
         List<String> namesTest = new ArrayList<>();
@@ -25,32 +24,29 @@ class Solution41Test {
         namesTest.add("Xiong, Fong");
 
 
-        person.readFromFile(names);
+        app.readFromFile(names);
 
         assertEquals(namesTest, names);
     }
 
     @Test
     void writeToFile() {
-        Person person = new Person();
+        Solution41 app = new Solution41();
         List<String> names = new ArrayList<>();
+        names.add("Johnson, Jim");
+        names.add("Swift, Geoffrey");
+        names.add("Xiong, Fong");
 
-        person.readFromFile(names);
-        Collections.sort(names);
-        String outputActual = person.writeToFile(names);
+        String outputActual = app.writeToFile(names);
 
         List<String> namesTest = new ArrayList<>();
         namesTest.add("Johnson, Jim\n");
-        namesTest.add("Jones, Aaron\n");
-        namesTest.add("Jones, Chris\n");
-        namesTest.add("Ling, Mai\n");
         namesTest.add("Swift, Geoffrey\n");
         namesTest.add("Xiong, Fong\n");
-        namesTest.add("Zarnecki, Sabrina\n");
         StringBuilder outputTest = new StringBuilder();
-        outputTest.append("Total of 7 names\n");
+        outputTest.append("Total of 3 names\n");
         outputTest.append("-----------------\n");
-        for (String test: namesTest) {
+        for (String test : namesTest) {
             outputTest.append(test);
         }
 

@@ -3,21 +3,16 @@
 
 
 class Solution42 {
-main(String[])
-List<String> employee
-List<String> l
-List<String> f
-List<String> s
+List<Employee> employeeList
++getFileLine(BufferedReader reader): String String.valueOf(output)
++writeToFile(List<Employee> employeeList): String reader.readLine()
 }
 
 class Employee {
-List<String> employees
-List<String> lastName
-List<String> firstName
-List<String> salary
-+readFromFile(List<String> employee)
-+writeToFile(List<String> lastName, List<String> firstName, List<String> salary): output
-+employeeParser(List<String> employees, List<String> lastName, List<String> firstName, List<String> salary)
+String lastName
+String firstName
+String salary
++outputString()
 }
 Solution42 o-- Employee
 @enduml

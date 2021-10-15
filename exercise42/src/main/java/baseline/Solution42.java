@@ -1,40 +1,57 @@
-/*
- *  UCF COP3330 Fall 2021 Assignment 4 Solutions
- *  Copyright 2021 Nader Fares
- */
-/*
-Construct a program that reads in the following data file (you will need to create this data file yourself; name it `exercise42_input.txt`):
-Process the records and display the results formatted as a table, evenly spaced, as shown in the example output.
-Write your own code to parse the data. Don't use a CSV parser.
- */
-
 package baseline;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Solution42 {
     public static void main(String[] args) {
-        Employee em = new Employee();
-        //declare list to store employees
+        Solution42 app = new Solution42();
+        List<Employee> employeeList = new ArrayList<>();    //list holds employee objects
 
-        List<String> employee = em.employees;
-        //declare lists to store last, first names and salaries
-        List<String> l = em.lastName;
-        List<String> f = em.firstName;
-        List<String> s = em.salary;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("./data/exercise42_input.txt"));
+            String currentLine = app.getFileLine(reader);
+            while (currentLine != null) {
+                String[] input = currentLine.split(",");    //split each line into last, first names and salaries
+                Employee employee = new Employee(input[0], input[1], input[2]);     //create new employee object with constructor
+                employeeList.add(employee);
+                currentLine = app.getFileLine(reader);      //update reader to next line
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
-        em.readFromFile(employee);
-
-        em.employeeParser(employee, l, f, s);
-
-        em.writeToFile(l, f, s);
-
-
+        app.writeToFile(employeeList);    //write to output file
     }
 
+    //read line from input file
+    public String getFileLine(BufferedReader reader) {
+        try {
+            return reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 
+    //write to output file
+    public String writeToFile(List<Employee> employeeList) {
+        StringBuilder output = new StringBuilder();
 
+        output.append(String.format("%-10s  %-10s  %-10s %n", "Last", "First", "Salary"));
+        output.append("------------------------------\n");
+        for (Employee employee : employeeList) {
+            output.append(employee.outputString());
+        }
 
-
-
+        try {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("./data/exercise42_output.txt"))) {
+                writer.write(String.valueOf(output));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return String.valueOf(output);      //return string for testing purposes
+    }
 }

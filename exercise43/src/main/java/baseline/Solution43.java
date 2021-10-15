@@ -14,45 +14,107 @@ Generate an index.html file that contains the name of the site inside the <title
  */
 package baseline;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Solution43 {
+    static final String CREATED = "Created ";       //to avoid retyping same term multiple times
+
     public static void main(String[] args) {
+        Solution43 app = new Solution43();
         Scanner input = new Scanner(System.in);
-        Website w = new Website();
 
         //build output along the way
-        StringBuilder output = w.output;
+        StringBuilder output = new StringBuilder();
 
         //prompt for and store site name
         System.out.print("Site name: ");
         String siteName = input.nextLine();
 
         //create and return site directory
-        String siteDirectory = w.createWebsiteDirectory(siteName);
+        String siteDirectory = app.createWebsiteDirectory(siteName, output);
 
         //prompt for and store author name
         System.out.print("Author: ");
         String authorName = input.nextLine();
 
         //create html website
-        w.createWebsiteHTML(siteDirectory, siteName, authorName);
+        app.createWebsiteHTML(siteDirectory, siteName, authorName, output);
 
         //ask if they want js, create js folder if yes
         System.out.print("Do you want a folder for JavaScript? ");
         String jsFolder = input.nextLine();
         if (jsFolder.equalsIgnoreCase("y") || jsFolder.equalsIgnoreCase("yes")) {
-            w.createWebsiteJs(siteDirectory);
+            app.createWebsiteJs(siteDirectory, output);
         }
 
         //ask if they want css, create css folder if yes
         System.out.print("Do you want a folder for CSS? ");
         String cssFolder = input.nextLine();
         if (cssFolder.equalsIgnoreCase("y") || cssFolder.equalsIgnoreCase("yes")) {
-            w.createWebsiteCss(siteDirectory);
+            app.createWebsiteCss(siteDirectory, output);
         }
 
         //display output
         System.out.println(output);
+    }
+
+    //create file directory using input site name
+    public String createWebsiteDirectory(String siteName, StringBuilder output) {
+        String siteDirectory = "./data/website/" + siteName;
+        File filePath = new File(siteDirectory);
+        if (!filePath.exists()) {
+            boolean wasSuccessful = filePath.mkdirs();
+            if (wasSuccessful)
+                output.append(CREATED).append(siteDirectory).append("\n");        //build output
+        }
+        return siteDirectory;        //return directory
+    }
+
+    //create website html
+    public void createWebsiteHTML(String siteNameDir, String siteName, String authorName, StringBuilder output) {
+        try {
+            File file = new File(siteNameDir + "/index.html");
+
+            if (!file.exists()) {
+                boolean wasSuccessful = file.createNewFile();
+                if (wasSuccessful)
+                    output.append(CREATED).append(siteNameDir).append("/index.html\n");        //build output
+            }
+            PrintWriter pw = new PrintWriter(file);
+            pw.println("<html>");
+            pw.println("<head>");
+            pw.println("<title>" + siteName + "</title>");        //site name between <main> tags
+            pw.println("<meta name=\"author\" content=\"" + authorName + "\">");        //author name between <meta> tags
+            pw.println("</head>");
+            pw.println("<body>");
+            pw.println("</body>");
+            pw.println("</html>");
+            pw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //create js folder
+    public void createWebsiteJs(String siteNameDir, StringBuilder output) {
+        File fileJS = new File(siteNameDir + "/js");
+        if (!fileJS.exists()) {
+            boolean wasSuccessful = fileJS.mkdirs();
+            if (wasSuccessful)
+                output.append(CREATED).append(siteNameDir).append("/js\n");        //build output
+        }
+    }
+
+    //create css folder
+    public void createWebsiteCss(String siteNameDir, StringBuilder output) {
+        File fileJS = new File(siteNameDir + "/css");
+        if (!fileJS.exists()) {
+            boolean wasSuccessful = fileJS.mkdirs();
+            if (wasSuccessful)
+                output.append(CREATED).append(siteNameDir).append("/css\n");        //build output
+        }
     }
 }
