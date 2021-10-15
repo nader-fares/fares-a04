@@ -1,0 +1,11 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+
+class Solution45 {
+String outputString
+String outputFile
++readAndReplace(): String output
++writeToFile(String outputFile, String output)
+}
+@enduml
