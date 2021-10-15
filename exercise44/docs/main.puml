@@ -1,0 +1,22 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution44 {
+boolean isFound
+String productName
++productDeserialization(): shop
+}
+
+class Products {
+String name
+double price
+int quantity
+}
+
+class ItemShop{
+List<Products> products
+}
+
+Solution44 o-- ItemShop
+ItemShop o-- Products
+@enduml
