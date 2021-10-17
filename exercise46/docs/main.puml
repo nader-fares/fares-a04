@@ -8,13 +8,13 @@ boolean doesExist
 
 +main(String[])
 +createHistogram(Word word): String
-+checkForObject(List<Word> wordList, String currentWord)
++checkForObject(List<Word> wordList, String currentWord): boolean
 }
 
 class Word {
 String name
 int occurrenceCounter
-+getOccurrenceCounter()
++getOccurrenceCounter(): int
 }
 
 Solution46 o-- Word

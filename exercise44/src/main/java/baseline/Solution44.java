@@ -19,23 +19,14 @@ public class Solution44 {
         //declare class of a list of products
         ItemShop shop = app.productDeserialization();   //store json file data into shop
 
-        boolean isFound = false;    //loop escape condition
+        boolean isFound;             //loop escape condition
 
         do {
             //prompt for product name and store string
             System.out.print("What is the product name? ");
             String productName = input.nextLine();
 
-            //search through list of product object names for input
-            for (int i = 0; i < shop.products.size(); i++) {
-                //if found print out name, price and quantity
-                if (shop.products.get(i).name.equalsIgnoreCase(productName)) {
-                    System.out.println("Name: " + shop.products.get(i).name);
-                    System.out.println("Price: " + shop.products.get(i).price);
-                    System.out.println("Quantity: " + shop.products.get(i).quantity);
-                    isFound = true;     //escape loop
-                }
-            }
+            isFound = app.checkForItem(productName, shop);    //prints item details if found
 
             if (!isFound)
                 System.out.println("Sorry, that product was not found in our inventory.");
@@ -58,4 +49,19 @@ public class Solution44 {
         }
         return shop;
     }
+
+    public boolean checkForItem(String productName, ItemShop shop) {
+        //search through list of product object names for input
+        for (int i = 0; i < shop.products.size(); i++) {
+            //if found print out name, price and quantity
+            if (shop.products.get(i).name.equalsIgnoreCase(productName)) {
+                System.out.println("Name: " + shop.products.get(i).name);
+                System.out.println("Price: " + shop.products.get(i).price);
+                System.out.println("Quantity: " + shop.products.get(i).quantity);
+                return true;     //escape loop
+            }
+        }
+        return false;   //item does not exist
+    }
+
 }

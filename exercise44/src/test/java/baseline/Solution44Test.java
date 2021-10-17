@@ -24,17 +24,39 @@ class Solution44Test {
         shopExpected.products.add(p2);
         shopExpected.products.add(p3);
 
-        boolean isSame = true;
+        boolean isSameActual = true;
 
         for (int i = 0; i < shopExpected.products.size(); i++) {
             if (!shopExpected.products.get(i).name.equals(shopActual.products.get(i).name) ||
                     shopExpected.products.get(i).price != shopActual.products.get(i).price ||
                     shopExpected.products.get(i).quantity != shopActual.products.get(i).quantity) {
-                isSame = false;
+                isSameActual = false;
                 break;
             }
         }
 
-        assertTrue(isSame);
+        boolean isSameExpected = true;
+        assertEquals(isSameExpected, isSameActual);  //weak warning is for not simplifying to assertTrue (which is not what's being tested)
+    }
+
+    @Test
+    void checkForItem() {
+        Solution44 app = new Solution44();
+
+        String productName = "Widget";
+        ItemShop shop = new ItemShop();
+        shop.products = new ArrayList<>();
+
+        Products p1 = new Products("Widget", 25.0, 5);
+        Products p2 = new Products("Thing", 15.0, 5);
+        Products p3 = new Products("Doodad", 5.0, 10);
+        shop.products.add(p1);
+        shop.products.add(p2);
+        shop.products.add(p3);
+
+        boolean isFoundActual = app.checkForItem(productName, shop);
+        boolean isFoundExpected = true;
+
+        assertEquals(isFoundExpected, isFoundActual);   //weak warning is for not simplifying to assertTrue (which is not what's being tested)
     }
 }

@@ -5,15 +5,15 @@
 class Solution42 {
 List<Employee> employeeList
 +main(String[])
-+getFileLine(BufferedReader reader): String String.valueOf(output)
-+writeToFile(List<Employee> employeeList): String reader.readLine()
++getFileLine(BufferedReader reader): String
++writeToFile(List<Employee> employeeList): String
 }
 
 class Employee {
 String lastName
 String firstName
 String salary
-+outputString()
++outputString(): String
 }
 Solution42 o-- Employee
 @enduml

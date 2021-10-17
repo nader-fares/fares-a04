@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="baseline.Solution42Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-14T19:45:57" hostname="DESKTOP-60QMB9L" time="0.017">
+<testsuite name="baseline.Solution42Test" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-17T19:20:18" hostname="DESKTOP-60QMB9L" time="0.015">
   <properties/>
-  <testcase name="writeToFile()" classname="baseline.Solution42Test" time="0.017"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="getFileLine()" classname="baseline.Solution42Test" time="0.015"/>
+  <system-out><![CDATA[Ling,Mai,55900
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

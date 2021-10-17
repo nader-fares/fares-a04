@@ -28,7 +28,7 @@ class Solution46Test {
         wordList.add(new Word("mushroom", 1));
         wordList.add(new Word("snake", 1));
 
-        String currentWord = "snakes";
+        String currentWord = "wolf";
 
         boolean actualOutcome = app.checkForObject(wordList, currentWord);
         boolean expectedOutcome = false;
