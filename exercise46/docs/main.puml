@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+class Solution46 {
+List<Word> wordList
+String currentWord
+boolean doesExist
+
++main(String[])
++createHistogram(Word word): String
++checkForObject(List<Word> wordList, String currentWord)
+}
+
+class Word {
+String name
+int occurrenceCounter
++getOccurrenceCounter()
+}
+
+Solution46 o-- Word
+@enduml

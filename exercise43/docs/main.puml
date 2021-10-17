@@ -7,6 +7,7 @@ String siteDirectory
 String authorName
 String jsFolder
 String cssFolder
++main(String[])
 +createWebsiteDirectory(String siteName, StringBuilder output): String siteDirectory
 +createWebsiteHTML(String siteNameDir, String siteName, String authorName, StringBuilder output)
 +createWebsiteJs(String siteNameDir, StringBuilder output)

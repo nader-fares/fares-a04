@@ -4,6 +4,7 @@
 
 class Solution42 {
 List<Employee> employeeList
++main(String[])
 +getFileLine(BufferedReader reader): String String.valueOf(output)
 +writeToFile(List<Employee> employeeList): String reader.readLine()
 }

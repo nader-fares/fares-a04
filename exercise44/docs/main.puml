@@ -4,6 +4,7 @@
 class Solution44 {
 boolean isFound
 String productName
++main(String[])
 +productDeserialization(): shop
 }
 

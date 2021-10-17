@@ -5,6 +5,7 @@
 class Solution45 {
 String outputString
 String outputFile
++main(String[])
 +readAndReplace(): String output
 +writeToFile(String outputFile, String output)
 }
