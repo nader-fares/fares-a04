@@ -1,5 +1,7 @@
 @startuml
 'https://plantuml.com/sequence-diagram
+
+'only one class for the solution as adding a class to hold each person would be unnecessary since all we are doing with the names is sorting by last name
 class Solution41 {
 +main(String[])
 List<String> personList
