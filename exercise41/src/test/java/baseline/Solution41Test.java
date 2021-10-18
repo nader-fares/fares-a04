@@ -2,6 +2,8 @@ package baseline;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,24 +34,11 @@ class Solution41Test {
     @Test
     void writeToFile() {
         Solution41 app = new Solution41();
-        List<String> names = new ArrayList<>();
-        names.add("Johnson, Jim");
-        names.add("Swift, Geoffrey");
-        names.add("Xiong, Fong");
+        String output = "";
 
-        String outputActual = app.writeToFile(names);
+        File file = new File("./data/exercise41_output.txt");
+        app.writeToFile(output);
 
-        List<String> namesTest = new ArrayList<>();
-        namesTest.add("Johnson, Jim\n");
-        namesTest.add("Swift, Geoffrey\n");
-        namesTest.add("Xiong, Fong\n");
-        StringBuilder outputTest = new StringBuilder();
-        outputTest.append("Total of 3 names\n");
-        outputTest.append("-----------------\n");
-        for (String test : namesTest) {
-            outputTest.append(test);
-        }
-
-        assertEquals(String.valueOf(outputTest), outputActual);
+        assertTrue(file.exists());
     }
 }

@@ -24,7 +24,18 @@ public class Solution41 {
 
         //sort names
         Collections.sort(names);
-        app.writeToFile(names);
+
+        int length = names.size();
+
+        //build output
+        StringBuilder output = new StringBuilder();
+        output.append("Total of ").append(length).append(" names\n");
+        output.append("-----------------\n");
+        for (String name : names)
+            output.append(name).append("\n");
+
+        app.writeToFile(String.valueOf(output));
+
     }
 
     //read names from input file
@@ -42,16 +53,7 @@ public class Solution41 {
     }
 
     //write names onto output file
-    public String writeToFile(List<String> names) {
-        int length = names.size();
-
-        //build output
-        StringBuilder output = new StringBuilder();
-        output.append("Total of ").append(length).append(" names\n");
-        output.append("-----------------\n");
-        for (String name : names)
-            output.append(name).append("\n");
-
+    public void writeToFile(String output) {
         try {
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("./data/exercise41_output.txt"))) {
                 writer.write(String.valueOf(output));
@@ -59,7 +61,5 @@ public class Solution41 {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return String.valueOf(output);    //return string for testing purposes
     }
 }

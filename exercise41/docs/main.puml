@@ -5,7 +5,7 @@ class Solution41 {
 List<String> personList
 'Collections.sort(personList)
 +readFromFile(List<String> names)
-+writeToFile(List<String> names): output
++writeToFile(String> output):
 }
 
 
