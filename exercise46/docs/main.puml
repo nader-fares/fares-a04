@@ -12,8 +12,9 @@ boolean doesExist
 }
 
 class Word {
-String name
+-String name
 int occurrenceCounter
++getName(): String
 +getOccurrenceCounter(): int
 }
 

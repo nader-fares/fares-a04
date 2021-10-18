@@ -1,8 +1,12 @@
 package baseline;
 
 public class Word {
-    String name;
+    private final String name;
     int occurrenceCounter;
+
+    public String getName() {
+        return name;
+    }
 
     public int getOccurrenceCounter() {
         return occurrenceCounter;

@@ -10,9 +10,10 @@ List<Employee> employeeList
 }
 
 class Employee {
-String lastName
-String firstName
-String salary
+-String lastName
+-String firstName
+-String salary
+'constructor
 +outputString(): String
 }
 Solution42 o-- Employee

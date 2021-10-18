@@ -56,13 +56,13 @@ public class Solution46 {
     public String createHistogram(Word word) {
 
         // return for testing purposes
-        return String.format("%-10s", word.name + ":") +
+        return String.format("%-10s", word.getName() + ":") +
                 "*".repeat(Math.max(0, word.occurrenceCounter));            //print * for amount of word counter
     }
 
     public boolean checkForObject(List<Word> wordList, String currentWord) {
         for (Word word : wordList) {
-            if (currentWord.equalsIgnoreCase(word.name)) {
+            if (currentWord.equalsIgnoreCase(word.getName())) {
                 word.occurrenceCounter++;            //if word object exists update object counter
                 return true;        //word does exist
             }

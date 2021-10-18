@@ -9,9 +9,12 @@ String productName
 }
 
 class Products {
-String name
-double price
-int quantity
+-String name
+-double price
+-int quantity
++getName()
++getPrice()
++getQuantity()
 }
 
 class ItemShop{

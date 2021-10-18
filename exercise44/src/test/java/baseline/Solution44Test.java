@@ -27,9 +27,9 @@ class Solution44Test {
         boolean isSameActual = true;
 
         for (int i = 0; i < shopExpected.products.size(); i++) {
-            if (!shopExpected.products.get(i).name.equals(shopActual.products.get(i).name) ||
-                    shopExpected.products.get(i).price != shopActual.products.get(i).price ||
-                    shopExpected.products.get(i).quantity != shopActual.products.get(i).quantity) {
+            if (!shopExpected.products.get(i).getName().equals(shopActual.products.get(i).getName()) ||
+                    shopExpected.products.get(i).getPrice() != shopActual.products.get(i).getPrice() ||
+                    shopExpected.products.get(i).getQuantity() != shopActual.products.get(i).getQuantity()) {
                 isSameActual = false;
                 break;
             }

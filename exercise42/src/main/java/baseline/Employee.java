@@ -1,9 +1,9 @@
 package baseline;
 
 public class Employee {
-    String lastName;
-    String firstName;
-    String salary;
+    private final String lastName;
+    private final String firstName;
+    private final String salary;
 
     Employee(String lastName, String firstName, String salary) {
         this.lastName = lastName;

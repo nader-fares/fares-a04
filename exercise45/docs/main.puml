@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-
+'only have one class for solution since nothing is being created; each instance of 'utilize' is simply being replaced with 'use'
 class Solution45 {
 String outputString
 String outputFile

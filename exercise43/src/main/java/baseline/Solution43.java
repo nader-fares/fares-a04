@@ -28,33 +28,34 @@ public class Solution43 {
 
         //build output along the way
         StringBuilder output = new StringBuilder();
+        Website site = new Website();
 
         //prompt for and store site name
         System.out.print("Site name: ");
-        String siteName = input.nextLine();
+        site.setSiteName(input.nextLine());
 
         //create and return site directory
-        String siteDirectory = app.createWebsiteDirectory(siteName, output);
+        site.setSiteDirectory(app.createWebsiteDirectory(site.getSiteName(), output));
 
         //prompt for and store author name
         System.out.print("Author: ");
-        String authorName = input.nextLine();
+        site.setAuthorName(input.nextLine());
 
         //create html website
-        app.createWebsiteHTML(siteDirectory, siteName, authorName, output);
+        app.createWebsiteHTML(site.getSiteDirectory(), site.getSiteName(), site.getAuthorName(), output);
 
         //ask if they want js, create js folder if yes
         System.out.print("Do you want a folder for JavaScript? ");
-        String jsFolder = input.nextLine();
-        if (jsFolder.equalsIgnoreCase("y") || jsFolder.equalsIgnoreCase("yes")) {
-            app.createWebsiteJs(siteDirectory, output);
+        site.setJsFolder(input.nextLine());
+        if (site.getJsFolder().equalsIgnoreCase("y") || site.getJsFolder().equalsIgnoreCase("yes")) {
+            app.createWebsiteJs(site.getSiteDirectory(), output);
         }
 
         //ask if they want css, create css folder if yes
         System.out.print("Do you want a folder for CSS? ");
-        String cssFolder = input.nextLine();
-        if (cssFolder.equalsIgnoreCase("y") || cssFolder.equalsIgnoreCase("yes")) {
-            app.createWebsiteCss(siteDirectory, output);
+        site.setCssFolder(input.nextLine());
+        if (site.getCssFolder().equalsIgnoreCase("y") || site.getCssFolder().equalsIgnoreCase("yes")) {
+            app.createWebsiteCss(site.getSiteDirectory(), output);
         }
 
         //display output

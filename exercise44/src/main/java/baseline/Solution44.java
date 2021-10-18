@@ -54,10 +54,10 @@ public class Solution44 {
         //search through list of product object names for input
         for (int i = 0; i < shop.products.size(); i++) {
             //if found print out name, price and quantity
-            if (shop.products.get(i).name.equalsIgnoreCase(productName)) {
-                System.out.println("Name: " + shop.products.get(i).name);
-                System.out.println("Price: " + shop.products.get(i).price);
-                System.out.println("Quantity: " + shop.products.get(i).quantity);
+            if (shop.products.get(i).getName().equalsIgnoreCase(productName)) {
+                System.out.println("Name: " + shop.products.get(i).getName());
+                System.out.println("Price: " + shop.products.get(i).getPrice());
+                System.out.println("Quantity: " + shop.products.get(i).getQuantity());
                 return true;     //escape loop
             }
         }
